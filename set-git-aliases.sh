@@ -14,13 +14,6 @@ if [ $? -ne 0 ]; then
     exit_with_error "git is not installed"
 fi
 
-# Check if the current directory is part of a git repository
-git rev-parse --show-toplevel > /dev/null 2>&1
-
-if [ $? -ne 0 ]; then
-    exit_with_error "The current directory is not part of a git repository"
-fi
-
 # Create git aliases
 $GIT_PATH config --global alias.st status
 $GIT_PATH config --global alias.ci commit
