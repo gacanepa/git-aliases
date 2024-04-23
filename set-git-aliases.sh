@@ -14,13 +14,16 @@ if [ $? -ne 0 ]; then
     exit_with_error "git is not installed"
 fi
 
-# Create git aliases
 $GIT_PATH config --global alias.st status
 $GIT_PATH config --global alias.ci commit
 $GIT_PATH config --global alias.sw switch
 $GIT_PATH config --global alias.co checkout
 $GIT_PATH config --global alias.br branch
 $GIT_PATH config --global alias.df diff
+$GIT_PATH config --global alias.current "branch --current"
+$GIT_PATH config --global alias.pb "push --set-upstream origin"
+$GIT_PATH config --global alias.pf "push --force-with-lease"
+
 $GIT_PATH config --global alias.lg "log --oneline"
 $GIT_PATH config --global alias.lga "log --oneline --decorate --all --graph"
 $GIT_PATH config --global alias.lpd "log --pretty='%C(yellow)%h %C(cyan)%cd %Cblue%aN%C(auto)%d %Creset%s' --date-order"
